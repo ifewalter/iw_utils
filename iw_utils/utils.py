@@ -1,4 +1,4 @@
-import base64
+import pybase64
 import hashlib
 import pyotp
 import uuid

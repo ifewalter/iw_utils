@@ -8,7 +8,7 @@ setup(
     include_package_data=True,
     packages = find_packages(exclude=["*.tests", "*.tests.*", "tests.*", "tests"]),
     install_requires=[
-        'base64',
+        'pybase64',
         'hashlib',
         'uuid',
         'pyDes',
