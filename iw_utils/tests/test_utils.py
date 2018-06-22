@@ -14,3 +14,21 @@ class UtilsTest(TestCase):
         encrypted_text = 'cinQDDzrFSk='
         decrypted_text = Util.decrypt3DESData('testkey',encrypted_text)
         self.assertNotEqual(decrypted_text, encrypted_text)
+
+    def test_generate_token_is_not_none(self):
+        token = Util.generate_token()
+        self.assertIsNotNone(token)
+
+    def test_generate_token_is_unique(self):
+        token = Util.generate_token()
+        token2 = Util.generate_token()
+        self.assertNotEqual(token, token2)
+
+    def test_generate_token_is_not_none(self):
+        token = Util.generate_random_base32()
+        self.assertIsNotNone(token)
+
+    def test_generate_token_is_unique(self):
+        token = Util.generate_random_base32()
+        token2 = Util.generate_random_base32()
+        self.assertNotEqual(token, token2)
