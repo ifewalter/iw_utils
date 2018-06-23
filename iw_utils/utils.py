@@ -20,7 +20,7 @@ class Util(object):
         m = hashlib.md5()
         m.update(encoded_key)
         hex_key = m.digest()
-        k = triple_des(hex_key, ECB,padmode=PAD_PKCS5)
+        k = triple_des(hex_key, ECB, padmode=PAD_PKCS5)
         d = base64.b64encode(k.encrypt(data))
         return d.decode("ascii")
 
@@ -31,7 +31,7 @@ class Util(object):
         m = hashlib.md5()
         m.update(encoded_key)
         hex_key = m.digest()
-        k = triple_des(hex_key, ECB,padmode=PAD_PKCS5)
+        k = triple_des(hex_key, ECB, padmode=PAD_PKCS5)
 
         d = k.decrypt(base64.b64decode(ciphertext))
 
@@ -41,7 +41,14 @@ class Util(object):
     def generate_token():
         return uuid.uuid4().hex
 
-
     @staticmethod
     def generate_random_base32():
         return pyotp.random_base32()
+
+    @staticmethod
+    def generate_totp(seed, otp_interval=300):
+        return pyotp.TOTP(seed, interval=otp_interval).now()
+
+    @staticmethod
+    def verify_totp(seed, otp, interval=300):
+        return pyotp.TOTP(seed, interval=interval).verify(otp)

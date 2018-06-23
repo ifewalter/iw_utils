@@ -32,3 +32,20 @@ class UtilsTest(TestCase):
         token = Util.generate_random_base32()
         token2 = Util.generate_random_base32()
         self.assertNotEqual(token, token2)
+
+    def test_totp_token(self):
+        seed = Util.generate_random_base32()
+        otp = Util.generate_totp(seed)
+
+        self.assertIsNotNone(otp)
+
+        result = Util.verify_totp(seed, otp)
+        self.assertTrue(result)
+
+    def test_verify_totp(self):
+        seed = Util.generate_random_base32()
+        otp = Util.generate_totp(seed)
+        result = Util.verify_totp(seed, otp)
+        self.assertTrue(result)
+
+
