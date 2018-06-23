@@ -35,6 +35,12 @@ jobs:
             pip install --upgrade pip
             pip install -r requirements.txt
 
+      - run:
+          name: compile egg
+          command: |
+            python3 setup.py bdist_egg
+            python3 setup.py install
+
       - save_cache:
           paths:
             - ./venv
