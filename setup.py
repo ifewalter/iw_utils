@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name = "iw_utils",
-    version = "0.3",
+    version = "0.4",
     author="Ife Walter",
     author_email="ifewalter@gmail.com",
     include_package_data=True,
