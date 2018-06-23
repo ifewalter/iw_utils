@@ -37,7 +37,7 @@ class Util(object):
     
 
     @staticmethod
-    def decrypt3DESData(key, ciphertext):
+    def decrypt3DESData(key:str, ciphertext:str)->str:
         """Provides decryption for encrypted content returned from flutterwave service.
 
         :param key:
@@ -64,7 +64,7 @@ class Util(object):
 
 
     @staticmethod
-    def generate_token():
+    def generate_token()->str:
         """Generate token
 
         :return str: uuid as string
@@ -74,7 +74,7 @@ class Util(object):
 
 
     @staticmethod
-    def generate_random_base32():
+    def generate_random_base32()->str:
         """
         Generate a random base32 string
 
@@ -86,7 +86,7 @@ class Util(object):
 
 
     @staticmethod
-    def generate_totp(seed, otp_interval=300):
+    def generate_totp(seed:str, otp_interval:int=300)->str:
         """
         Generate a time based OTP
         :param seed:
@@ -101,7 +101,7 @@ class Util(object):
 
 
     @staticmethod
-    def verify_totp(seed, otp, interval=300):
+    def verify_totp(seed:str, otp:str, interval:int=300)->bool:
         """
         Verify previously generated time based OTP
 
