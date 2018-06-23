@@ -5,6 +5,7 @@ setup(
     version = "0.5",
     author="Ife Walter",
     author_email="ifewalter@gmail.com",
+
     include_package_data=True,
     packages = find_packages(exclude=["*.tests", "*.tests.*", "tests.*", "tests"]),
     install_requires=[
