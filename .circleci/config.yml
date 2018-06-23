@@ -39,7 +39,7 @@ jobs:
           name: compile egg
           command: |
             python3 setup.py bdist_egg
-            python3 setup.py install
+
 
       - save_cache:
           paths:
@@ -56,6 +56,7 @@ jobs:
           command: |
             . venv/bin/activate
             nosetests
+            python3 setup.py install
 
       - store_artifacts:
           path: test-reports
